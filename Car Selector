@@ -1,0 +1,234 @@
+#include <iostream> 
+#include <string>
+#include <fstream>
+std::ofstream outputFile;
+using namespace std;
+
+int main()
+{
+    string dealer_name;
+    string vehicle_type;
+    string roofline;
+    string length;
+    string vtype;
+    string vehicle_choice2;
+    string wheelbase3;
+    string roofline3;
+    string color2;
+    string vehicle_type2;
+    char decision;
+    char roofline2;
+    char wheelbase2;
+    char vehicle_choice;
+    int vehicle_quantity;
+    char color;
+
+    cout << "Welcome to the Vehicle Order Site!\n Please enter the dealership you would like to order from: ";
+    getline(cin, dealer_name);
+    cout << "You entered " << dealer_name << "." << endl;
+
+    cout << "Please type a number for the amount of vehicles you would like: ";
+    cin >> vehicle_quantity;
+    cout << "You entered " << vehicle_quantity << "." << endl;
+
+    cout << "Enter 'W' for White, 'G' for Grey, or 'B' for Black for the color you would like for your vehicle(s). Note, you can press q anytime to exit!: ";
+    cin >> color;
+    if (color == 'b' || color == 'B') 
+        color = 'B';
+
+    else if (color == 'w' || color == 'W') 
+        color = 'W';
+
+    else if (color == 'g' || color == 'G')
+        color = 'G';
+
+    else if (color == 'q' || color == 'Q')
+        exit(0);
+    else 
+    {
+        cout << "Sorry you've entered an incorrect character. Please choose W for White, G for Grey, or B for Black.\n";
+        cout << "Enter 'W' for White, 'G' for Grey, or 'B' for Black for the color you would like for your vehicle(s).: ";
+        cin >> color;
+    }
+        
+
+   switch(color)
+   {
+    case 'b' : cout << "You've chosen Black.\n";
+    color2 = "Black";
+    break;
+    case 'B' : cout << "You've chosen Black.\n";
+    color2 = "Black";
+    break;
+    case 'w' : cout << "You've chosen White.\n";
+    color2 = "White";
+    break;
+    case 'W' : cout << "You've chosen White.\n";
+    color2 = "White";
+    break;
+    case 'g' : cout << "You've chosen Grey.\n";
+    color2 = "Grey";
+    break;
+    case 'G' : cout << "You've chosen Grey. \n";
+    color2 = "Grey";
+    break;
+    case 'q' : cout << "You are leaving! Goodbye!\n";
+    exit(0);
+    break;
+    case 'Q' : cout << "You are leaving! Goodbye!\n";
+    exit(0);
+    break;
+   }
+
+    cout << "Please enter IC for Internal Combustion Vehicle or EV for Electric Vehicle: ";
+    cin >> vehicle_type;
+    if(vehicle_type == "EV" || vehicle_type == "ev")
+    {
+        vehicle_type2 = "Electric";
+        cout << "All Electric Vehicles are Cargo only, with a medium length, and a medium roofline. Do you wish to proceed?(Y/N): ";
+        cin >> decision;
+        if(decision == 'Y' || decision == 'y')
+        {
+            vtype = "Electric";
+            roofline = "Medium";
+            length = "Medium";
+            cout << "Okay! Here is your receipt!\n";
+            cout << "You are ordering " << vehicle_quantity << " vehicles from "<< dealer_name << ".\n They all are " << vtype << " with a " << roofline << " roofline, a " << length << " length, and Cargo Only!\n Thank you for shopping with us!";
+            outputFile.open("Car Receipt.txt");
+            outputFile << "You are ordering " << vehicle_quantity << " vehicles from "<< dealer_name << ".\n They all are "<< color2 << " and " << vtype << " with a " << roofline << " roofline, a " << length << " length, and Cargo Only!\n Thank you for shopping with us!";
+            outputFile.close();
+        }
+        else if (decision == 'N' || decision == 'n')
+        {
+            cout << "Please enter IC for Internal Combustion Vehicle or EV for Electric Vehicle: ";
+            cin >> vehicle_type;
+        }
+        else if (decision == 'Q' || decision == 'q')
+        {
+            cout << "You are leaving! Goodbye!";
+            exit(0);
+        }
+        else 
+        {
+            cout << "Please type Y for yes or N for no. Or Q to Quit";
+            cout << "All Electric Vehicles are Cargo only, with a medium length, and a medium roofline. Do you wish to proceed?(Y/N): ";
+            cin >> decision;
+        }
+    
+    } 
+    else if (vehicle_type == "IC" || vehicle_type == "ic")
+    {
+        vehicle_type2 = "Internal Combustion";
+        cout << "You have chosen an Internal Combustion engine, which has a customizeable roofline and wheelbase, as well as the choice between Cargo and Passenger. Do you wish to proceed? (Y/N): ";
+        cin >> decision;
+        if (decision == 'Y' || decision == 'y')
+        {
+            cout << "Let's start with the roofline, would you like a low roofline (L), a regular roofline (R), or a High Roofline (H), press the corresponding character: ";
+            cin >> roofline2;
+            switch(roofline2)
+            {
+                case 'l' : cout << "You have chosen the low roofline.\n";
+                roofline3 = "Low";
+                break;
+                case 'L' : cout << "You have chosen the low roofline.\n";
+                roofline3 = "Low";
+                break;
+                case 'r' : cout << "You have chosen the regular roofline.\n";
+                roofline3 = "Regular";
+                break;
+                case 'R' : cout << "You have chosen the regular roofline.\n";
+                roofline3 = "Regular";
+                break;
+                case 'h' : cout << "You have chosen the high roofline.\n";
+                roofline3 = "High";
+                break;
+                case 'H' : cout << "You have chosen the high roofline.\n";
+                roofline3 = "High";
+                break;
+                case 'q' : cout << "You are leaving! Goodbye!\n";
+                exit(0);
+                break;
+                case 'Q' : cout << "You are leaving! Goodbye!\n";
+                exit(0);
+                break;
+            }
+            cout << "Now would you like a small wheelbase (S), a medium wheelbase (M), or a large wheelbase (L)? Enter the corresponding letter.: ";
+            cin >> wheelbase2;
+            switch (wheelbase2)
+            {
+                case 's' : cout << "You have chosen the small wheelbase.\n";
+                wheelbase3 = "Small";
+                break;
+                case 'S' : cout << "You have chosen the small wheelbase.\n";
+                wheelbase3 = "Small";
+                break;
+                case 'M' : cout << "You have chosen the medium wheelbase.\n";
+                wheelbase3 = "Medium";
+                break;
+                case 'm' : cout << "You have chosen the medium wheelbase.\n";
+                wheelbase3 = "Medium";
+                break;
+                case 'L' : cout << "You have chosen the large wheelbase.\n";
+                wheelbase3 = "Large";
+                break;
+                case 'l' : cout << "You have chosen the large wheelbase.\n";
+                wheelbase3 = "Large";
+                break;
+                case 'q' : cout << "You are leaving! Goodbye!\n";
+                exit(0);
+                break;
+                case 'Q' : cout << "You are leaving! Goodbye!\n";
+                exit(0);
+                break;
+
+            }
+            cout << "Finally, would you like Cargo (C), or Passenger (P)? Enter the corresponding letter.: ";
+            cin >> vehicle_choice;
+            switch (vehicle_choice)
+            {
+                case 'c' : cout << "You have chosen Cargo.\n";
+                vehicle_choice2 = "Cargo";
+                break;
+                case 'C' : cout << "You have chosen Cargo.\n";
+                vehicle_choice2 = "Cargo";
+                break;
+                case 'P' : cout << "You have chosen Passenger.\n";
+                vehicle_choice2 = "Passenger";
+                break;
+                case 'p' : cout  << "You have chosen Passenger.\n";
+                vehicle_choice2 = "Passenger";
+                break;
+                case 'q' : cout << "You are leaving! Goodbye!\n";
+                exit(0);
+                break;
+                case 'Q' : cout << "You are leaving! Goodbye!\n";
+                exit(0);
+                break;
+            }
+            cout << "Alright! Here is your order!\n";
+            cout << "You are ordering from " << dealer_name << ".\n You are ordering " << vehicle_quantity << " vehicles that are colored " << color2 << ".\n You are ordering " << vehicle_type2 << "with, a " << roofline3 << " roofline, a " << wheelbase3 << " wheelbase. Finally you chose " << vehicle_choice2 << ". Thank you for shopping with us!";
+            outputFile.open("Car Receipt.txt");
+            outputFile << "You are ordering from " << dealer_name << ".\n You are ordering " << vehicle_quantity << " vehicles that are colored " << color2 << ".\n You are ordering " << vehicle_type2 << " with, a " << roofline3 << " roofline, a " << wheelbase3 << " wheelbase. Finally you chose " << vehicle_choice2 << ". Thank you for shopping with us!" << std::endl;
+            outputFile.close();
+
+        }
+        else if(decision == 'n' || decision == 'N')
+        {
+            cout << "Please enter IC for Internal Combustion Vehicle or EV for Electric Vehicle: ";
+            cin >> vehicle_type;
+        }
+    }
+    else if (vehicle_type == "Q" || vehicle_type == "q")
+    {
+        cout << "You are leaving! Goodbye!";
+        exit(0);
+    }
+    else
+    {
+        cout << "Please enter IC for Internal Combustion or EV for Electric Vehicle.\n";
+        cout << "Please enter IC for Internal Combustion Vehicle or EV for Electric Vehicle: ";
+        cin >> vehicle_type;
+
+    }
+return 0;
+}
