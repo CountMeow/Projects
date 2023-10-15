@@ -1,0 +1,189 @@
+def main():
+    print("\nWelcome to Genshin Builder!\nHere you can learn about how to build characters in early or late game!\nHope you enjoy! :)\nIf you would like to exit the program, simply type leave! ")
+    name = str(input("Enter the name of the Genshin Character you would like information on here: ").lower().title())
+    
+    if name == "Ganyu":
+        get_Ganyu(name)
+
+    elif name == "Bennett":
+        get_Bennett(name)
+        
+    elif name == "Kokomi":
+        get_Kokomi(name)
+
+    elif name == "Sangonomiya Kokomi":
+        get_Kokomi(name)
+
+    elif name == "Eula":
+        get_Eula(name)
+
+    elif name == "Eula Lawrence":
+        get_Eula(name)
+
+    elif name == "Thoma":
+        get_Thoma(name)
+
+    elif name == "Yoimiya":
+        get_Yoimiya(name)
+
+    elif name == "Naganohara Yoimiya":
+        get_Yoimiya(name)
+
+    elif name == "Yelan":
+        get_Yelan(name)
+
+    elif name == "Leave":
+        while True:
+            answer =str(input("Are you sure you want to leave? (Y/N): "))
+            if answer == "Y":
+                exit()
+            else:
+                main()
+                break
+
+    else:
+        print("I'm sorry, that character has either not been released yet, or not implemented into this program!")
+        
+
+def get_Ganyu(name):
+        if name == "Ganyu":
+            print("You have chosen Ganyu!\n")
+        while True:
+            info = str(input("\nWhat would you like to know about Ganyu? (Type Weapon, Artifact, or Role): ").lower().title())
+            if info == "Weapon":
+                print("\nGanyu's signature weapon is Amos' Bow (5-Star)!\nHer second best weapon would be Prototype Crescent (4-Star)!\nHer best weapon for early-game would be Sharpshooter's Oath (3-Star)!\n")
+            elif info == "Artifact":
+                print("\nGanyu's best artifact set late-game is Shimenawa's Reminiscence!\nUse an atk hourglass, cryo dmg bonus cup, and a crit rate/damage hat!\nHer best artifact set early game would be Martial Artist!\n")
+            elif info == "Role":
+                print("\nGanyu is a 5-Star Cryo Bow and a scary DPS!\nFocus on her atk and that crit ratio!\n")
+            answer = str(input("Would you like to learn more about this chara? (Y/N): ").lower().title())
+            if answer == "N":
+                main()
+                break
+            else:
+                get_Ganyu
+    
+       
+        
+        
+    
+def get_Kokomi(name):
+    if name == "Kokomi" or "Sangonomiya Kokomi":
+        print("You have chosen Sangonomiya Kokomi!\n")
+    while True:
+        info = str(input("\nWhat would you like to know about Kokomi? (Type Weapon, Artifact, or Role): ").lower().title())
+        if info == "Weapon":
+            print("\nKokomi's signature weapon is Everlasting Moonglow (5-Star)!\nHer second best weapon would be Prototype Amber(4-Star)!\nHer best weapon for early game would be Thrilling Tales of Dragon Slayers(3-Star)!\n")
+        elif info == "Artifact":
+            print("\nKokomi's best artifact set late-game is Ocean-Hued Clam!\nWith an hp hourglass, cup, and a healing bonus hat!\nHer best artifact set early-game would be Maiden Beloved!\n")
+        elif info == "Role":
+            print("\nKokomi is a 5-Star Hydro Catalyst and a fantastic healer!\nFocus on increasing her maximum hp to get the benefit!\n")
+        answer = str(input("Would you like to learn more about this chara? (Y/N): ").lower().title())
+        if answer == "N":
+            main()
+            break
+        else:
+            get_Kokomi
+
+
+
+def get_Bennett(name):
+    if name == "Bennett":
+        print("You have chosen Bennett!\n")
+    while True:
+        info = str(input("\nWhat would you like to know about Bennett? (Type Weapon, Artifact, or Role): ").lower().title())
+        if info == "Weapon":
+            print("\nBennett's best weapon would be Skyward Blade (5-Star)!\nHis second best weapon would be Favonius Sword (4-Star)!\nHis best early-game weapon would be Skyrider Sword (3-Star)!\n")
+        elif info == "Artifact":
+            print("\nBennett's best artifact set late game is Nobless Oblige!\nUse an Hp% hourglass, cup, and hat!\nHis best early-game artifact set would be the Instructor!\n")
+        elif info == "Role":
+            print("\nBennett is a 4-Star Pyro Sword and an insane support!\nStack flat atk and hp in order to maximize his usefulness!\n")
+        answer = str(input("Would you like to learn more about this chara? (Y/N): ").lower().title())
+        if answer == "N":
+            main()
+            break
+        else:
+            get_Bennett
+
+
+
+def get_Eula(name):
+    if name == "Eula" or "Eula Lawrence":
+        print("\nYou have chosen Eula Lawrence!\n")
+    while True:
+        info = str(input("\nWhat would you like to know about Eula? (Type Weapon, Artifact, or Role): ").lower().title())
+        if info == "Weapon":
+            print("\nEula's signature weapon is Song of the Broken Pines (5-Star)!\nHer second best weapon would be Prototype Archaic(4-Star)!\nHer best early-game weapon would be Skyrider Greatsword(3-Star)!\n")
+        elif info == "Artifact":
+            print("\nEula's best artifact set late game is Pale Flame!\nUse an atk% hourglass, physical dmg bonus cup, and a crit rate/damage hat!\nHer best early-game artifact set would be the Martial Artist!\n")
+        elif info == "Role":
+            print("\nEula is a 5-Star Cryo Claymore who deals insane physical damage, making her a killer DPS!\nBuild her attack and crit ratio!\n")
+        answer = str(input("Would you like to learn more about this chara? (Y/N): ").lower().title())
+        if answer == "N":
+            main()
+            break
+        else:
+            get_Eula
+
+
+        
+def get_Thoma(name):
+    if name == "Thoma":
+        print("\nYou have chosen Thoma!\n")
+    while True:
+        info = str(input("\nWhat would you like to know about Thoma? (Type Weapon, Artifact, or Role): ").lower().title())
+        if info == "Weapon":
+            print("\nThoma's best weapon is Englufing Lightning (5-Star)!\nHis second best weapon would be Favonius Lance (4-Star)!\nHis best early game weapon is the Black Tassel(3-Star)!\n")
+        elif info == "Artifact":
+            print("\nThoma's best artifact set late game is the Emblem of Severed Fate!\nUse an hp% hourglass, cup, and hat!\nHis best early-game artifact set is the Instructor!\n")
+        elif info == "Role":
+            print("\nThoma is 4-Star Pyro Polearm who can create a pretty decent shield!\nFocus on hp and energy recharge to get the benefit!\n")
+        answer = str(input("Would you like to learn more about this chara? (Y/N): ").lower().title())
+        if answer == "N":
+            main()
+            break
+        else:
+            get_Thoma
+
+        
+def get_Yoimiya(name):
+    if name == "Yoimiya" or "Naganohara Yoimiya":
+        print("\nYou have chosen Naganohara Yoimiya!\n")
+    while True:
+        info = str(input("\nWhat would you like to know about Yoimiya? (Type Weapon, Artifact, or Role): ").lower().title())
+        if info == "Weapon":
+            print("\nYoimiya's signature weapon is Thundering Pulse (5-Star)!\nHer second best weapon would be the Rust(4-Star)!\nHer best early game weapon is The Slingshot(3-Star)!\n")
+        elif info == "Artifact":
+            print("\nYoimiya's best artifact set late game is Shimenawa's Reminiscence!\nUse an atk% hourglass, a pyro damage bonus cup, and a crit hat!\nHis best early-game artifact set is Martial Artist!\n")
+        elif info == "Role":
+            print("\nYoimiya is a 5-Star Pyro Bow who can deal some rapid pyro damage!\nBuild her attack and that crit ratio!\n")
+        answer = str(input("Would you like to learn more about this chara? (Y/N): ").lower().title())
+        if answer == "N":
+            main()
+            break
+        else:
+            get_Yoimiya
+
+
+def get_Yelan(name):
+    if name == "Yelan":
+        print("\n You have chosen Yelan!\n")
+    while True:
+        info = str(input("\nWhat would you like to know about Yelan? (Type Weapon, Artifact, or Role): ").lower().title())
+        if info == "Weapon":
+            print("\nYelan's signature weapon is Aqua Simulacra(5-Star)!\nHer second best weapon is Favonius Warbow(4-Star!)\nHer best early game weapon is The Recurve Bow(3-Star)!\n")
+        elif info == "Artifact":
+            print("Yelan's best artifact set late game is the Emblem of Severed Fate!\nUse an hp or er hourglass, a hydro damage bonus cup, and a crit hat!\nHer best early-game artifact set is The Elite!\n")
+        elif info == "Role":
+            print("Yelan is a 5-Star Hydro Bro who's ultimate lends a hand in support, making her a great Sub-DPS with DPS capabilities! Balance her hp and er, as well as her crit ratio to get the full benefit!")
+        answer = str(input("Would you like to learn more about this chara? (Y/N): ").lower().title())
+        if answer == "N":
+            main()
+            break
+        else:
+            get_Yelan
+    
+main()
+
+
+
