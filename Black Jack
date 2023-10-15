@@ -1,0 +1,257 @@
+print("Welcome to Blackjack! Here are the rules!\nThe goal of Blackjack is to have a hand value of 21! (Or 50 in our bonus option!)\nThe player and the dealer are both dealt 2 cards, and can choose to either 'hit' to receive additional cards or 'stand' to keep their current hand.\nIf the player's hand is close to 21 than the dealer's, or if the dealer goes over 21, the player wins!\nHowever if a player exceeds 21 (or 50), they lose!\n") 
+import random
+def main():
+    totalBet = 500
+    while totalBet >= 0:
+        print("Answer a few questions before we start!")
+        numbr = int(input("Would you like to play to 21 or 50? (Type 21 or 50): "))
+        while numbr not in (21,50):
+            print("I'm sorry but your number does not match one of the options, please type 50 or 21.")
+            numbr = int(input("Would you like to play to 21 or 50? (Type 21 or 50): "))
+            
+        if numbr == 21 or numbr == 50:
+            totalBet = getTwentyOne(numbr,totalBet)
+            print("Your new bet total is: ",totalBet)  
+            
+    if totalBet < 0:
+        print("Oh no you can't! You have lost all of your money! See you again soon.")
+        input("press ENTER to exit")
+        exit()
+ 
+
+def getTwentyOne(numbr,totalBet):
+    print("You have picked", numbr)
+    bet = int(input("Time to bet! How much do you want to bet? Your wallet starts with 500 (Pick a whole number between 50-500): "))
+    if bet <= 500 and bet >= 50:
+        print("Your bet has been placed!")
+    while bet > 500 or bet < 50:
+        print("Your bet is out of range, please choose a whole number between 50-500)")
+        bet = int(input("How much do you want to bet? Your wallet starts with 500! (Pick a whole number between 50-500): "))
+         
+    ace = int(input("Do you want Aces to count as 1 or 11? (Type 1 or 11): "))
+    while ace not in (1,11):
+        print("Please enter 1 or 11.")
+        ace = int(input("Do you want Aces to count as 1 or 11? (Type 1 or 11): "))
+    if ace == 1:
+        print("Great!")
+        arr = [1,2,3,4,5,6,7,8,9,10,10,10]
+        
+        ready = str(input("Are you ready to start?(Y/N): "))
+
+        while ready not in ("y","Y"):
+            print("Why are you running this program then?")
+            ready = str(input("Are you ready to start?(Y/N): "))
+        
+        if ready == "y" or ready == "Y":
+            print("Great!")
+            totalBet = blackJack(arr,ace, bet, numbr,totalBet)
+            return totalBet
+
+    elif ace == 11:
+        print("Great!")
+        arr = [2,3,4,5,6,7,8,9,10,10,10,11]
+        
+        ready = str(input("Are you ready to start?(Y/N): ").lower().title())
+
+        while ready not in ("y","Y"):
+            print("Why are you running this program then?")
+            ready = str(input("Are you ready to start?(Y/N): ").lower().title())
+            
+        if ready == "y" or ready == "Y":
+            print("Great!")
+            totalBet = blackJack(arr,ace, bet, numbr,totalBet)
+            return totalBet
+
+
+def blackJack(arr,ace, bet, numbr,totalBet):
+    print("Let's Play!")
+    if ace == 11:
+        arr.sort()
+        print("These are the values you'll use in this game!\n", arr)
+    elif ace == 1:
+        arr.sort()
+        print("These are the values you'll use in this game!\n", arr)
+    player = 0
+    dealer = 0
+    end = 0
+    stopplayer = 0
+    stopdealer = 0
+    card1 = arr[random.randint(0,11)]
+    card2 = arr[random.randint(0,11)]
+    player = card1 + card2
+    card3 = arr[random.randint(0,11)]
+    card4 = arr[random.randint(0,11)]
+    dealer = card3 + card4
+    print("Your first cards are ",card1," and ",card2," totaling ",player)
+    print("The dealers cards are ",card3," and ",card4, " totaling ",dealer)
+    if numbr == 21:
+        target = 17
+    elif numbr == 50:
+        target = 46
+
+    while player < numbr and dealer < numbr and stopplayer == 0:
+        choice = str(input("Would you like to hit?(Y/N): "))
+        while choice not in ("y", "Y", "N","n"):
+            print("Please only use Y/y for yes and N/n for no.")
+            choice = str(input("Would you like to hit?(Y/N): "))
+
+        if choice == "Y" or choice == "y":
+            nextcard = arr[random.randint(0,11)]
+            print("You have chosen hit!")
+            print("Your next card is ",nextcard)
+            player = player + nextcard
+            nextcard = 0
+            print("Your card total is ",player)
+
+        elif choice == "N" or choice == "n":
+            print("You have chosen to stand!")
+            stopplayer = 1
+
+            while dealer < player and stopplayer == 1 and stopdealer == 0:
+                print("The dealer has chosen to hit!")
+                nextcard = arr[random.randint(0,11)]
+                dealer = dealer + nextcard
+                nextcard = 0
+                print("The dealers total is now: ",dealer)
+            if dealer == numbr:
+                end = 1
+                print("The dealers card total is ",dealer, " and hit blackjack! He has won!")
+                lose = bet
+                totalBet = totalBet - lose
+                print("Your original bet was:", bet, "You now have:", totalBet)
+                reset()
+                return totalBet
+
+            if dealer >= player:
+                stopdealer = 1
+                if player > dealer and player < numbr:
+                    end = 1
+                    print("You have ",player," and the dealer has ",dealer,", you win!")
+                    win = bet * 2
+                    totalBet = totalBet + win
+                    print("Your original bet was:", bet, "You now have:", totalBet)
+                    reset()
+                    return totalBet
+                elif dealer > player and dealer < numbr:
+                    end = 1
+                    print("You have ",player," and the dealer has ",dealer,", You lost!")
+                    lose = bet
+                    totalBet = totalBet - lose
+                    print("Your original bet was:", bet, "You now have:", totalBet)
+                    end = 1
+                    reset()
+                    return totalBet
+                elif dealer == player:
+                    end = 1
+                    print("You and the dealer have ",player," you have tied!")
+                    print("Since you tied, you have the same bet amount as before, total: ",totalBet)
+                    reset()
+                    return totalBet
+                elif dealer > numbr:
+                    end = 1
+                    print("The dealer busted, you win!")
+                    win = bet * 2
+                    totalBet = totalBet + win
+                    print("Your original bet was:", bet, "You now have:", totalBet)
+                    reset()
+                    return totalBet
+            elif stopdealer == 1 and stopplayer == 1:
+                if player > dealer and player < numbr:
+                    end = 1
+                    print("You have ",player," and the dealer has ",dealer,", you win!")
+                    win = bet * 2
+                    totalBet = totalBet + win
+                    print("Your original bet was:", bet, "You now have:", totalBet)
+                    reset()
+                    return totalBet
+                elif dealer > player and dealer < numbr:
+                    end = 1
+                    print("You have ",player," and the dealer has ",dealer,", You lost!")
+                    lose = bet
+                    totalBet = totalBet - lose
+                    print("Your original bet was:", bet, "You now have:", totalBet)
+                    end = 1
+                    reset()
+                    return totalBet
+                elif dealer == player:
+                    end = 1
+                    print("You and the dealer have ",player," you have tied!")
+                    print("Since you tied, you have the same bet amount as before. Your original bet is:", totalBet)
+                    reset()
+                    return totalBet
+                elif dealer > numbr:
+                    end = 1
+                    print("The dealer busted, you win!")
+                    win = bet * 2
+                    totalBet = totalBet + win
+                    print("Your original bet was:", bet, "You now have:", totalBet)
+                    reset()
+                    return totalBet
+
+
+        if dealer < target and player < numbr and end == 0 and stopdealer == 0:
+            print("The dealer has chosen to hit!")
+            nextcard = arr[random.randint(0,11)]
+            dealer = dealer + nextcard
+            nextcard = 0
+            print("The dealers total is now: ",dealer)
+
+        if dealer >= target and dealer < numbr and end == 0 and stopdealer == 0:
+            print("The dealer has chosen to stand")
+            print("The dealers card total is ",dealer)
+            stopdealer = 1
+
+    if player > numbr and end == 0:
+        print("Your card total is ",player,",you have busted!")
+        lose = bet
+        totalBet = totalBet - lose
+        print("Your original bet was:", bet, "You now have: ", totalBet)
+        reset()
+        return totalBet
+
+    elif dealer > numbr and end == 0:
+        print("The dealer busted, you win!")
+        win = bet * 2
+        totalBet = totalBet + win
+        print("Your original bet was:", bet, "You now have:", totalBet)
+        reset()
+        return totalBet
+
+    elif dealer == numbr and end == 0:
+        print("The dealer got", numbr, "and hit blackjack, dealer wins!")
+        lose = bet
+        totalBet = totalBet - lose
+        print("Your original bet was:", bet, "You now have: ", totalBet)
+        reset()
+        return totalBet
+
+    elif player == numbr and end == 0:
+        print("You got", numbr, "and hit blackjack, you win!")
+        win = bet * 2
+        totalBet = totalBet + win
+        print("Your original bet was:", bet, "You now have:", totalBet)
+        reset()
+        return totalBet
+
+
+        
+def reset():
+    choice = str(input("Would you like to play again? (Y/N): "))
+    while choice not in ("y", "Y", "N","n"):
+        print("Please only use Y/y for yes and N/n for no.")
+        choice = str(input("Would you like to play again? (Y/N): "))
+        
+    if choice == "Y" or choice == "y":
+        player = 0
+        dealer = 0
+        end = 0
+        
+    elif choice == 'N' or choice == 'n':
+        print("See you next time!")
+        input("Press ENTER to exit")
+        exit()
+    
+
+
+main()
+        
