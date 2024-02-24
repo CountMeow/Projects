@@ -1,0 +1,12 @@
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\bin\Debug\MathProblemDisplayer.exe.config
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\bin\Debug\MathProblemDisplayer.exe
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\bin\Debug\MathProblemDisplayer.pdb
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\bin\Debug\MathProblemDisplayer.xml
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\obj\Debug\MathProblemDisplayer.vbproj.AssemblyReference.cache
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\obj\Debug\MathProblemDisplayer.Resources.resources
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\obj\Debug\MathProblemDisplayer.vbproj.GenerateResource.cache
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\obj\Debug\MathProblemDisplayer.vbproj.CoreCompileInputs.cache
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\obj\Debug\MathProblemDisplayer.exe
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\obj\Debug\MathProblemDisplayer.xml
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\obj\Debug\MathProblemDisplayer.pdb
+C:\Users\owner\source\repos\MathProblemDisplayer\MathProblemDisplayer\obj\Debug\MathProblemDisplayer.MathProblemDisplayer.resources
