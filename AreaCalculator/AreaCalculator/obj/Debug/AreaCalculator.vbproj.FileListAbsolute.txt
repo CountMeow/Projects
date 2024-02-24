@@ -1,0 +1,12 @@
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\bin\Debug\AreaCalculator.exe.config
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\bin\Debug\AreaCalculator.exe
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\bin\Debug\AreaCalculator.pdb
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\bin\Debug\AreaCalculator.xml
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\obj\Debug\AreaCalculator.vbproj.AssemblyReference.cache
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\obj\Debug\AreaCalculator.Form1.resources
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\obj\Debug\AreaCalculator.Resources.resources
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\obj\Debug\AreaCalculator.vbproj.GenerateResource.cache
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\obj\Debug\AreaCalculator.vbproj.CoreCompileInputs.cache
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\obj\Debug\AreaCalculator.exe
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\obj\Debug\AreaCalculator.xml
+C:\Users\owner\source\repos\AreaCalculator\AreaCalculator\obj\Debug\AreaCalculator.pdb
